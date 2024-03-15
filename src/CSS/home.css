@@ -1,0 +1,241 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+  }
+  .background-image{
+    /* border:2px solid black; */
+    background-image: url("../images/home-page-background.png");
+    background-size: cover;
+    background-position: center top;
+    /* background-attachment: fixed; */
+    background-repeat: no-repeat;
+    height:90vh;
+    width:100%;
+    position:relative;
+  }
+  .image-text{
+    text-align: center;
+    position:absolute;
+    bottom:10vh;
+    left:12vw;
+    color:skyblue;
+    text-shadow: 2px 2px black;
+  }
+  .appointment-btn{
+    width:30%;
+    margin: auto;
+    display:flex;
+    justify-content: space-between;
+  }
+  .btn{
+    background-color: skyblue;
+    color:black;
+    margin-top: 10px;
+    padding:10px 10px;
+    font-size: 20px;
+  }
+  .btn:hover{
+background-color: rgba(6, 6, 6, 0.716);
+color:white;
+  }
+
+  .image-text h1{
+    animation:demo 2s;
+  }
+
+
+/* why us............................... */
+
+/* .why-us-parent{
+  border:2px solid black;
+} */
+
+.why-us-parent .col-lg-6{
+  /* border:2px solid green; */
+  padding:20px 20px !important;
+  /* position:relative; */
+ 
+}
+.why-us-left{
+  background:url("../images/about-1.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:cover;
+  height:45vh;
+  width:20vw;
+  /* border:2px solid red; */
+  margin: auto;
+
+
+}
+
+.read-more-btn{
+  padding:0.8rem 2rem;
+  border:2px solid transparent;
+  background-color:#0463FA;
+  border-radius: 40px;
+font-size: 1.2rem;
+  color:white;
+}
+ul li{
+  list-style-type: none;
+  text-align: left;
+}
+.why-us-right h2{
+font-size: 2.5rem;
+font-weight: bolder;
+text-align: left;
+}
+.parent{
+  width:80%;
+  margin: auto;
+  margin-top: 20px;
+}
+.why-us-left-text{
+  border:2px solid black;
+  width:47vw;
+  text-align: right;
+}
+
+
+
+/* cards................... */
+.cards-parent{
+  /* border:2px solid black; */
+  display:flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+span{
+  color:blue;
+  cursor: pointer;
+}
+.cards{
+width:22vw;
+padding:2.5rem 1rem;
+/* border:2px solid black; */
+background-color: rgba(127, 255, 212, 0.155);
+margin-top: 30px;
+transition:0.5s transform linear;
+}
+.cards:hover{
+  transform: translateY(-20px);
+}
+/* .cards-des{
+  border:2px solid black;
+ text-align: justify;
+} */
+.icon{
+  height:50px;
+  margin-bottom: 10px;
+  width:50px;
+  border-radius: 50%;
+  padding:10px;
+  background-color: white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* doctors-card....................... */
+
+.doctor-card-parent{
+  display:flex;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
+.doctor-card{
+  /* border:2px solid black; */
+  border-radius: 10px;
+}
+.doctor-image{
+  transition:0.2s linear;
+}
+.doctor-image:hover{
+opacity:0.8;
+
+}
+.doctor-image-1{
+  background: url("../images/team-1.jpg");
+  height:40vh;
+ 
+   border-radius: 10px 10px 0px 0px;
+  width:18vw;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.doctor-image-2{
+  background: url("../images/team-2.jpg");
+  height:40vh;
+   border-radius: 10px 10px 0px 0px;
+   width:18vw;
+  background-size: cover;
+background-position: center top;
+  background-repeat: no-repeat;
+}
+.doctor-image-3{
+  background: url("../images/team-3.jpg");
+  height:40vh;
+   border-radius: 10px 10px 0px 0px;
+   width:18vw;
+  background-size: cover;
+background-position: center top;
+  background-repeat: no-repeat;
+}
+.doctor-image-4{
+  background: url("../images/team-4.jpg");
+  height:40vh;
+   border-radius: 10px 10px 0px 0px;
+   width:18vw;
+  background-size: cover;
+background-position: center top;
+  background-repeat: no-repeat;
+}
+.doctor-text-div{
+  padding-top: 0;
+  transition: 0.5s linear;
+  background-color: rgba(127, 255, 212, 0.155);
+  border-radius: 0px 0px 10px 10px;
+  padding:0.6rem 0;
+
+}
+
+.call-us-now{
+  /* border:1px solid black; */
+  border-radius: 10px;
+  padding:10px;
+  width:20vw;
+  background-color: #EFF5FF !important;
+}
+.contact-parent .col-lg-5{
+border:2px solid black;
+}
+.contact-container{
+  margin: auto;
+  border:2px solid green;
+  width:70%;
+}
+.contact-parent{
+  margin: auto;
+  border:2px solid red;
+  
+}
+  @keyframes demo{
+    0%{
+      opacity:0;
+      transform:translateY(-50px)
+    }
+    50%{
+      opacity:1;
+      color:black;
+    }
+    100%{
+      color:skyblue;
+      transform:translateY(0px)
+    }
+  }
