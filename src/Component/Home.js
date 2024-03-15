@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
 
   const navi=useNavigate();
-  let path="../images/about-1.jpg"
 
  let departments=[{
   icon: <i className="fa fa-heartbeat text-primary fs-4"></i>,
