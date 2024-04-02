@@ -1,0 +1,39 @@
+*{
+    padding:0;
+    margin: 0;
+}
+.dashboard-left-side{
+    /* border:1px solid black; */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.421);
+    height:90vh;
+    width:28%;
+    /* background-color: skyblue; */
+}
+.dashboard-parent-container{
+display:flex;
+justify-content: space-between;
+}
+.dashboard-right-side{
+    border:1px solid black;
+    height:90vh;
+    width:70%;
+}
+.menu-item{
+   
+    color:black;
+    margin-top: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+}
+
+.menu-item:hover{
+    color:white;
+    background-color: skyblue;
+    height:3rem;
+}
+.menu-item a{
+    color:black;
+    padding-left: 20px;
+    font-size: 1.2rem;
+}
+            

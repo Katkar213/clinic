@@ -9,6 +9,7 @@ import Login from '../user-credential/Login';
 import Register from "../user-credential/Register";
 import ProtectedRoute from './Routes-protection/ProtectedRoute';
 import PublicRoute from './Routes-protection/PublicRoute';
+import Dashboard from './Dashboard/Dashboard';
 
 
 const Routers = () => {
@@ -17,20 +18,47 @@ const Routers = () => {
     <div>
     <Routes>
 
-      <ProtectedRoute>
-        
-      <Route path="/" element={<Home></Home>}></Route>
-    <Route path="/aboutus" element={<AboutUs></AboutUs>}></Route>
-    <Route path="/contactus" element={<ContactUs></ContactUs>}></Route>
-    <Route path="/doctor" element={<Doctor></Doctor>}></Route>
-    <Route path="/faq" element={<FAQ></FAQ>}></Route>
-      </ProtectedRoute>
-
-      <PublicRoute>
-      <Route path="/login" element={<Login/>}></Route>
-    <Route path="/register" element={<Register/>}></Route>
-      </PublicRoute>
     
+
+      <Route path="/" element={
+          <ProtectedRoute>
+<Home></Home>
+          </ProtectedRoute>
+      }></Route>
+    <Route path="/aboutus" element={
+       <ProtectedRoute>
+        <AboutUs></AboutUs>
+       </ProtectedRoute>
+   }></Route>
+    <Route path="/contactus" element={
+       <ProtectedRoute>
+         <ContactUs></ContactUs>
+       </ProtectedRoute>
+   }></Route>
+    <Route path="/doctor" element={
+       <ProtectedRoute>
+         <Doctor></Doctor>
+       </ProtectedRoute>
+   }></Route>
+    <Route path="/faq" element={
+       <ProtectedRoute><FAQ></FAQ></ProtectedRoute>
+    }></Route>
+ 
+
+ 
+      <Route path="/login" element={
+             <PublicRoute>
+              <Login/>
+             </PublicRoute>
+      }></Route>
+      
+    <Route path="/register" element={
+           <PublicRoute>
+            <Register/>
+           </PublicRoute>
+    }></Route>
+      
+    <Route path="/dashboard" element={<Dashboard></Dashboard>}/>
     
 </Routes>
     

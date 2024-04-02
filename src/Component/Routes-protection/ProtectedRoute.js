@@ -4,10 +4,12 @@ import { Navigate } from 'react-router-dom'
 const ProtectedRoute = ({children}) => {
 
     if(localStorage.getItem("token")){
+        console.log("iam stay here")
         return children
     }
     else{
-        <Navigate to="/" />
+        // console.log("return to login")
+      return <Navigate to="/login" />
     }
 }
 
