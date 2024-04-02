@@ -1,56 +1,50 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import "../CSS/home.css"
 // import "../CSS/common.css"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
+import axios from "axios";
 
 const Home = () => {
 
   const navi=useNavigate();
+  const [data,setData]=useState([]);
 
- let departments=[{
-  icon: <i className="fa fa-heartbeat text-primary fs-4"></i>,
-  title: "Cardiology",
-  des: "Cardiology departments typically focus on the diagnosis and treatment of heart-related conditions. They employ specialized cardiologists and medical professionals who specialize in cardiovascular health. "
-},
-{
-  icon: <i className="fa fa-brain text-primary fs-4"></i>,
-  title: "Neurology",
-  des: "Neurology departments focus on the diagnosis and treatment of neurological disorders, including conditions affecting the brain, spinal cord, and peripheral nerves."
-},
-{
-  icon: <i className="fa fa-x-ray text-primary fs-4"></i>,
-  title: "Pulmonary",
-  des: "Pulmonary departments specialize in respiratory health, addressing conditions like asthma, chronic obstructive pulmonary disease (COPD), and lung infections. "
-},
-{
-  icon: <i className="fa fa-wheelchair text-primary fs-4"></i>,
-  title: "Orthopedics",
-  des: "Orthopedic departments focus on musculoskeletal health, treating conditions related to bones, joints, ligaments, and muscles."
-},
-{
-  icon:<i className="fa fa-tooth text-primary fs-4"></i>,
-  title: "Dental Surgery",
-  des: "Dental Surgery departments offer a range of oral and maxillofacial surgical procedures. "
-},
-{
-  icon: <i className="fa fa-vials text-primary fs-4"></i>,
-  title: "Laboratory",
-  des: "Laboratory departments play a crucial role in healthcare, conducting diagnostic tests and analyses to aid in the detection and monitoring of various medical conditions. "
-}]
 
-let doctors=[{
-  image:"../images/team-1.jpg",
-  Name:"Jhon Deo"
-},{
-  image:"../images/team-1.jpg",
-  Name:"Jhon Deo"
-},{
-  image:"../images/team-1.jpg",
-  Name:"Jhon Deo"
-},{
-  image:"../images/team-1.jpg",
-  Name:"Jhon Deo"
-}]
+
+
+useEffect(()=>{
+axios.get("http://localhost:4001/api/getdata").then((res)=>{
+  setData(res.data)
+  
+})
+},[])
+console.log(data)
+
+
+
+
+// passing headers........................
+
+const getUserData=async()=>{
+try{
+await axios.post("http://localhost:4001/api/getUserData",{email: localStorage.getItem("email")},{
+headers:{
+  Authorization:"Bearer "+ localStorage.getItem("token"),
+}
+}
+).then(res=>console.log(res.data.message))
+
+}
+catch(err){
+  console.log(err);
+}
+
+}
+
+useEffect(()=>{
+  getUserData();
+},[])
+
   return (
     <div>
       {/* frontpage-image */}
@@ -101,10 +95,10 @@ let doctors=[{
 <div className="row">
 <h1 className="mt-5 text-center">Health Care Solutions</h1>
 <div className="col-lg-12 cards-parent">
-{departments.map((item,index)=>{
+{data.filter((item)=>item.category==="home-department").map((item,index)=>{
   return(
     <div className="cards" key={index}>
-      <div className="icon">{item.icon}</div>
+      <div className="icon"><i className={item.icon}></i></div>
   
      <h4>{item.title}</h4>
      <p className="cards-des">{item.des}</p>
@@ -125,7 +119,7 @@ let doctors=[{
   <h1 className="text-center mt-5">Our Experiance Doctors</h1>
   <div className="doctor-card-parent">
 
-{doctors.map((item,index)=>{
+{data.filter((item)=>item.category==="home-doctors").map((item,index)=>{
   return(
     <div key={index} className="doctor-card">
       <div className={`doctor-image-${index+1} doctor-image`}>

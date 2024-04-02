@@ -21,7 +21,7 @@
   display:flex;
   justify-content: space-between;
   flex-wrap:wrap;
-  width:75%;
+  width:100%;
   margin: auto;
 }
 .navlink-container{
@@ -57,5 +57,19 @@ font-weight: bold;
 .navlink:hover{
  color:red;
 }
-
-
+.login-button{
+  width:10vw;
+  height:2.6rem;
+  background-color: skyblue;
+  border:2px solid transparent;
+  outline:none;
+  color:white;
+}
+  .login-button:hover{
+background-color: black;
+color:white;
+  }
+.login-button-div{
+  /* border:1px solid black; */
+  padding-top: 16px;
+}
