@@ -1,10 +1,9 @@
 import React from 'react'
 import Dashboard from './Dashboard/Dashboard'
-import {useSelector} from "react-redux"
+
 import { NavLink } from 'react-router-dom'
 
 const Notification = ({children}) => {
-const{user}=useSelector((state)=>state.user)
 
 
 
