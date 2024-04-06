@@ -5,7 +5,7 @@ const initialstate={
 const loadingreducer=(state=initialstate,action)=>{
 switch(action.type){
     case "showLoader":
-        console.log("spinner entered")
+        // console.log("spinner entered")
         return {...state,loading:true}
     case "hideLoader":
         return {...state,loading:false} 

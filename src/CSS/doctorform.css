@@ -1,0 +1,31 @@
+.doctor-div1{
+    display:flex;
+}
+.registerparent{
+height:auto;
+}
+.submit-btn{
+    width:20vw !important;
+    padding:10px;
+    text-align: center;
+}
+.doctor-submit-div{
+    margin-top: 0px;
+    width:75vw;
+}
+.doctor-register-parent{
+justify-content: left;
+}
+.doctor-register-parent input{
+    width:24vw !important;
+    margin: 10px;
+}
+.doctor-register-parent label{
+    padding-left: 14px;
+}
+.star{
+    color:red;
+}
+.padding{
+    padding-left: 10px;
+}

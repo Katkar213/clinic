@@ -1,4 +1,4 @@
-const LinkData=[
+const Usermenu=[
 {
 name:"Home",
 path:"/",
@@ -15,15 +15,44 @@ icon:"fa-solid fa-house"
     icon:"fa-solid fa-user"
 },
 {
-    name:"Apply Doctor",
+    name:"ApplyDoctor",
     path:"/apply-doctor",
     icon:"fa-solid fa-user-doctor"
 },
-{
-    name:"Logout",
-    path:"/logout",
-    icon:"fa-solid fa-right-from-bracket"
-}
+
 ]
 
-export default LinkData
+
+
+
+const Adminmenu=[
+    {
+    name:"Home",
+    path:"/",
+    icon:"fa-solid fa-house"
+    },
+   
+    {
+        name:"Profile",
+        path:"/profile",
+        icon:"fa-solid fa-user"
+    },
+    {
+        name:"User",
+        path:"/user",
+        icon:"fa-solid fa-user"
+    },
+    {
+        name:"Doctors",
+        path:"/doctors",
+        icon:"fa-solid fa-user-doctor"
+    },
+    {
+        name:"Appointments",
+        path:"/appointments",
+        icon:"fa-solid fa-user-doctor"
+    }
+   
+    ]
+
+export  {Usermenu,Adminmenu}

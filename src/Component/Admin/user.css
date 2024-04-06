@@ -1,0 +1,47 @@
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead th {
+    background-color: #f2f2f2;
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  tbody td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+  }
+  
+  /* Button styling */
+  .block-button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .block-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Dashboard container */
+  .Dashboard {
+    margin: 20px;
+  }
+  
+  /* Optional: Add some spacing between table rows */
+  tbody tr {
+    transition: background-color 0.3s ease;
+  }
+  
+  tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  

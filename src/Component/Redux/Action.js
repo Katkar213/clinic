@@ -10,4 +10,13 @@ const hideloading=()=>{
     }
 }
 
-export {showloading,hideloading};
+const userName=(data)=>{
+return{
+  type:"success",
+  payload:data
+}
+}
+
+
+
+export {showloading,hideloading,userName};

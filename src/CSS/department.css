@@ -1,0 +1,91 @@
+.department-parent{
+    /* border:1px solid black; */
+    width:85%;
+    margin: auto;
+    padding:10px 10px;
+    margin-top: 30px;
+}
+.department-hero-session{
+    background-color: skyblue;
+    padding: 18vh 40vw;
+    color:white;
+    height:40vh;
+}
+.departments-heading{
+border-bottom:3px solid red;
+padding-bottom: 2px;
+margin: 30px 0px;
+width:13vw;
+
+}
+
+
+
+
+
+
+
+/* doctors-card....................... */
+
+.doctor-card-parent{
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+  }
+  .doctor-card{
+    /* border:2px solid black; */
+    border-radius: 10px;
+  }
+  .doctor-image{
+    transition:0.2s linear;
+  }
+  .doctor-image:hover{
+  opacity:0.8;
+  
+  }
+  .doctor-image-1{
+    background: url("../images/team-1.jpg");
+    height:40vh;
+   
+     border-radius: 10px 10px 0px 0px;
+    width:18vw;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+  .doctor-image-2{
+    background: url("../images/team-2.jpg");
+    height:40vh;
+     border-radius: 10px 10px 0px 0px;
+     width:18vw;
+    background-size: cover;
+  background-position: center top;
+    background-repeat: no-repeat;
+  }
+  .doctor-image-3{
+    background: url("../images/team-3.jpg");
+    height:40vh;
+     border-radius: 10px 10px 0px 0px;
+     width:18vw;
+    background-size: cover;
+  background-position: center top;
+    background-repeat: no-repeat;
+  }
+  .doctor-image-4{
+    background: url("../images/team-4.jpg");
+    height:40vh;
+     border-radius: 10px 10px 0px 0px;
+     width:18vw;
+    background-size: cover;
+  background-position: center top;
+    background-repeat: no-repeat;
+  }
+  .doctor-text-div{
+    padding-top: 0;
+    transition: 0.5s linear;
+    background-color: rgba(127, 255, 212, 0.155);
+    border-radius: 0px 0px 10px 10px;
+    padding:0.6rem 0;
+  
+  }
+  

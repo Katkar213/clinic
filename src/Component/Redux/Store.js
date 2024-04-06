@@ -1,9 +1,14 @@
+import setUser from "./Reducer2";
 import loadingreducer from "./Reducers";
 import {configureStore} from "@reduxjs/toolkit"
+import { combineReducers } from "@reduxjs/toolkit";
+
+const rootReducer=combineReducers({
+    alerts:loadingreducer,
+    user:setUser
+})
 
 const Store=configureStore({
-    reducer:{
-        alerts:loadingreducer
-    }
+    reducer:rootReducer
 })
 export default Store;

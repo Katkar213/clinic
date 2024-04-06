@@ -1,13 +1,95 @@
 import React,{useState,useEffect} from 'react'
 import "../CSS/home.css"
 // import "../CSS/common.css"
-import { useNavigate} from 'react-router-dom'
+// import { useNavigate} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
-
+import {NavLink} from "react-router-dom"
+import{useSelector} from "react-redux"
 const Home = () => {
-
-  const navi=useNavigate();
+const selector=useSelector((state)=>state.user.user);
+console.log(selector)
+  
   const [data,setData]=useState([]);
+const user=useSelector((state)=>state.user.user)
+
+// const usermail=localStorage.getItem("email")
+console.log(selector)
+
+
+  const[state,setState]=useState({
+    name:"",
+    address:"",
+    date:"",
+    time:"",
+    email:selector.email,
+    department:""
+    
+  
+  })
+
+  useEffect(() => {
+    // Update email state when user changes
+    if (user) {
+      setState((prevState) => ({
+        ...prevState,
+        email: user.email
+      }));
+    }
+  }, [user]);
+  
+  const handleChange = (e) => {
+    e.preventDefault();
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    });
+  };
+  
+  const handleSubmit=async(e)=>{
+    try{
+      // setState({...state,email:usermail})
+      console.log(state)
+      e.preventDefault();
+      await axios.post("http://localhost:4001/api/bookAppointment",{...state},{
+        headers:{
+          Authorization:`Bearer ${localStorage.getItem("token")}`
+        }
+      }).then((res)=>{
+  
+        if(res.data.success){
+          toast.success("Applied Successfully")
+        }
+        else{
+          toast.warn("Application not Approved")
+        }
+      })
+      console.log(state);
+      setState({
+        name:"",
+        address:"",
+        date:"",
+        time:"",
+        department:""
+       
+    
+      })
+      
+    }
+  
+    catch(err){
+      console.log(err)
+    }
+  
+  
+  
+  }
+  
+
+
+
+
 
 
 
@@ -55,7 +137,7 @@ useEffect(()=>{
             <h1>We Are Having Best Doctors And We Provide Top Facility To You !</h1>
             <div className="appointment-btn">
             <button className="btn btn1">Book An Appointment</button>
-            <button className="btn btn2" onClick={()=>navi("/contactus")}>Contact Us</button>
+            {/* <button className="btn btn2" onClick={()=>navi("/contactus")}>Contact Us</button> */}
             </div>
             
             </div>
@@ -98,10 +180,13 @@ useEffect(()=>{
 {data.filter((item)=>item.category==="home-department").map((item,index)=>{
   return(
     <div className="cards" key={index}>
+      <NavLink className="departments-navlink" to={`/departments/${item.title}`}>
       <div className="icon"><i className={item.icon}></i></div>
   
-     <h4>{item.title}</h4>
-     <p className="cards-des">{item.des}</p>
+  <h4>{item.title}</h4>
+  <p className="cards-des">{item.des}</p>
+      </NavLink>
+      
     
     </div>
   )
@@ -147,7 +232,42 @@ useEffect(()=>{
     <div className="call-us-now"><h5 className="text-center">Call Us Now</h5>
     <p className="text-center">+2408788586888r</p></div>
   </div>
-  <div className="col-lg-6"></div>
+  <div className="col-lg-6">
+    <div className="Home-form-div">
+    <label htmlFor="patientname">Name Of Patient:</label>
+    <input type="text" id="patientname" placeholder="Enter your name" name="name" value={state.name} onChange={handleChange}></input>
+    </div>
+    
+    <div className="Home-form-div">
+    <label htmlFor="patientname">Address:</label>
+    <input type="text" id="patientname" placeholder="Enter your name" name="address" value={state.address} onChange={handleChange}></input>
+    </div>
+
+    <div className="Home-form-div">
+    <label htmlFor="patientname">Date:</label>
+    <input type="date" id="patientname" placeholder="Enter your name" name="date" value={state.date} onChange={handleChange}></input>
+    </div>
+
+    <div className="Home-form-div">
+    <label htmlFor="patientname">Time:</label>
+    <input type="time" id="patientname" placeholder="Enter your name" name="time" value={state.time} onChange={handleChange}></input>
+    </div>
+
+    <div className="Home-form-div">
+    <label htmlFor="patientname">Department:</label>
+    <select id="patientname" placeholder="Enter your name" name="department" value={state.department} onChange={handleChange}>
+      <option value="select" selected hidden>Select</option>
+    <option value="Cardiology">Cardiology</option>
+  <option value="Neurology">Neurology</option>
+  <option value="Pulmonary">Pulmonary</option>
+  <option value="Dental">Dental</option>
+  <option value="Dental">Orthopedic</option>
+
+    </select>
+    </div>
+
+    <button className="home-submit-button" onClick={handleSubmit}>Submit</button>
+  </div>
 </div>
 </div>
 
@@ -209,6 +329,7 @@ useEffect(()=>{
     </div>
     {/* <!-- Footer End --> */}
 
+<ToastContainer></ToastContainer>
     </div>
   )
 }

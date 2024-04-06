@@ -1,7 +1,36 @@
-import React from 'react'
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import "../CSS/contact.css"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ContactUs = () => {
+
+
+
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_8f1v8ld', 'template_v8p7k7y', form.current, {
+        publicKey: 'VVvh8yQBqSGBDP0-Z',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          e.target.reset()
+          toast.success("message sent ...!")
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
+
+
   return (
     <div>
     <div className="contact-us-page">
@@ -10,25 +39,26 @@ const ContactUs = () => {
       <p>If you have any questions or would like to schedule an appointment, please contact us:</p>
       <p>Phone: 123-456-7890</p>
       <p>Email: info@omclinic.com</p>
-      <p>Address: 123 Main Street, City, State, Zip Code</p>
+      <p>Address: Kranti chowk,Aurangabd,431005</p>
     </div>
     <div className="contact-form">
       <h2>Send us a Message</h2>
-      <form>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">Message:</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
+
+      {/* form started.............. */}
+      <form ref={form} onSubmit={sendEmail}>
+  <label>Name</label>
+  <input type="text" name="user_name" />
+  <label>Email</label>
+  <input type="email" name="user_email" />
+  <label>Message</label>
+  <textarea name="message" />
+  <input type="submit" value="Send" />
+</form>
+
+    {/* form ended........................ */}
+
+
+
     </div>
     <div className="map-container">
       {/* Replace the iframe src with your own Google Maps embed code */}
@@ -103,6 +133,8 @@ const ContactUs = () => {
         </div>
     </div>
     {/* <!-- Footer End --> */}
+
+    <ToastContainer></ToastContainer>
   </div>
   )
 }

@@ -34,10 +34,10 @@ const handleChange = (e) => {
 
 const handleSubmit=async(e)=>{
   try{
-
+console.log(state)
     e.preventDefault();
     dispatch(showloading())
-    await axios.post("http://localhost:4001/api/login",state)
+    await axios.post("http://localhost:4001/api/login",{email: state.email, password: state.password })
     .then((res)=>{
 
       dispatch(hideloading())
