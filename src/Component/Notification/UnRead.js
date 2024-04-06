@@ -1,8 +1,6 @@
 import React from 'react'
 import Notification from '../Notification'
 import axios from "axios"
-import {useNavigate} from "react-router-dom"
-
 import {useSelector} from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const UnRead = () => {
 
-    const navi=useNavigate();
+
 const user = useSelector((state) => state.user.user)
     const handleMarkAllRead = async() => {
         window.location.reload()
