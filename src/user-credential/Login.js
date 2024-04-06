@@ -45,6 +45,7 @@ console.log(state)
       if(res.data.success){
         toast.success(res.data.message);
         setTimeout(()=>{
+          window.location.reload();
           navi("/")
 
           localStorage.setItem("token",res.data.token)

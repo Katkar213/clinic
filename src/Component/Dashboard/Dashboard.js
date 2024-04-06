@@ -61,6 +61,7 @@ useEffect(()=>{
 // logout......
 const handleLogout=()=>{
 localStorage.clear();
+// window.location.reload();
 }
 
 let sidebarMenu=true;

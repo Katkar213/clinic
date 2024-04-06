@@ -17,7 +17,6 @@ const user=useSelector((state)=>state.user.user)
 // const usermail=localStorage.getItem("email")
 console.log(selector)
 
-
   const[state,setState]=useState({
     name:"",
     address:"",
